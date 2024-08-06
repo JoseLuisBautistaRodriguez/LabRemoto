@@ -27,9 +27,7 @@
 				location.href = '/';
 			}
 		} catch (error) {
-			console.error('Error during login:', error);
 			logInStatus = 'error';
-			// Manejar el error adecuadamente aquí
 		}
 	}
 
@@ -45,8 +43,8 @@
 		<dialog {open}>
 			<article>
 				<h2>¡Ups!</h2>
-				<p>Error al conectar con el servidor</p>
-				<p>Si no puedes iniciar sesión, prueba desactivando tu AdBlocker.</p>
+				<p>Parece que los datos no son correctos</p>
+				<p>Si no puedes iniciar sesión, prueba reestableciendo tu contraseña.</p>
 				<footer>
 					<button onclick={() => (location.href = '/login')}>Iniciar sesión</button>
 				</footer>

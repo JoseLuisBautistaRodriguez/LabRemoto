@@ -8,8 +8,6 @@
 	import LoginRequiredModal from '$lib/components/LoginRequiredModal.svelte';
 	import UnauthorizedModal from '$lib/components/UnauthorizedModal.svelte';
 
-	let { data } = $props();
-
 	let loading = $state(true);
 	let dataFromPB: User[] = $state([]);
 	let role = $state('students');
@@ -94,7 +92,7 @@
 </div>
 
 <div class="pico container">
-	<div class="text-right">
+	<div class="text-center">
 		<div class="inline-block">
 			<select bind:value={role} aria-label="Rol" required>
 				<option selected disabled value="Usuario">Ver</option>

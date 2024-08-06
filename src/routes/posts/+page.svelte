@@ -14,7 +14,7 @@
 </svelte:head>
 
 <!-- Posts -->
-<section>
+<section class="pico container">
 	<ul class="posts">
 		{#each data.posts as post}
 			<li class="post">

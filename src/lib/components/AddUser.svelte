@@ -90,8 +90,12 @@
 				<select id="role" name="role" bind:value={role} required>
 					<option selected disabled value="">Seleccionar</option>
 					<option value="students">Alumna/o</option>
-					<option value="teachers">Maestra/o</option>
-					<option value="supervisors">Supervisor(a)</option>
+					{#if pb.loggedUser!.collectionName === 'supervisors' || pb.loggedUser!.collectionName === 'teachers'}
+						<option value="teachers">Maestra/o</option>
+					{/if}
+					{#if pb.loggedUser!.collectionName === 'supervisors'}
+						<option value="supervisors">Supervisor(a)</option>
+					{/if}
 				</select>
 			</label>
 		</div>
