@@ -41,15 +41,14 @@
 		}
 		files = null;
 	};
-
 </script>
 
 <svelte:window />
 <article>
 	<header class="flex justify-between">
-		<h3>Añadir desde archivo CSV/XLSX a {collectionName}</h3>
+		<h3>Añadir desde CSV/XLSX a {collectionName}</h3>
 
-		<button aria-label="Close" class="secondary" {onclick}
+		<button aria-label="Close" class="contrast" {onclick}
 			>{#if onclick}<X class="w-6 h-6" />{/if}</button
 		>
 	</header>
@@ -99,7 +98,6 @@
 <style>
 	header button {
 		padding: 0.5rem;
-		background-color: transparent;
 		border: none;
 	}
 

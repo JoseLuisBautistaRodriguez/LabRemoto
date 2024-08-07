@@ -117,6 +117,35 @@
 	});
 </script>
 
+{#snippet solicitar()}
+	<form onsubmit={handleSchedule}>
+		<!-- svelte-ignore a11y_no_redundant_roles -->
+		<fieldset class="grid">
+			<input
+				type="datetime-local"
+				name="datetime-local"
+				aria-label="Datetime local"
+				bind:value={reservationPick}
+				step="1800"
+				min={toISOString(now)}
+				required
+			/>
+			<input type="submit" value="Solicitar" />
+		</fieldset>
+	</form>
+	{#if status}
+		<div
+			class="flex items-center p-4 mb-4 text-sm rounded-lg bg-gray-50 dark:bg-gray-800 {success
+				? 'text-green-800 dark:text-green-400'
+				: 'text-red-800 dark:text-red-400'}"
+			role="alert"
+		>
+			<Info class="flex-shrink-0 inline w-4 h-4 me-1" />
+			<span class="font-medium">{status}</span>
+		</div>
+	{/if}
+{/snippet}
+
 <div class="pico container">
 	<article>
 		{#if horarioReservado}
@@ -152,39 +181,17 @@
 					</div>
 				{/if}
 			</hgroup>
+			{#if pb.isRole('supervisors')}
+				{@render solicitar()}
+			{/if}
 		{:else}
 			<header>
 				<hgroup>
 					<h3>No tienes ningún horario reservado.</h3>
 					<h4>Para acceder, selecciona una hora. Contarás con 30 minutos a la hora elegida.</h4>
 				</hgroup>
+				{@render solicitar()}
 			</header>
-			<form onsubmit={handleSchedule}>
-				<!-- svelte-ignore a11y_no_redundant_roles -->
-				<fieldset class="grid">
-					<input
-						type="datetime-local"
-						name="datetime-local"
-						aria-label="Datetime local"
-						bind:value={reservationPick}
-						step="1800"
-						min={toISOString(now)}
-						required
-					/>
-					<input type="submit" value="Solicitar" />
-				</fieldset>
-			</form>
-			{#if status}
-				<div
-					class="flex items-center p-4 mb-4 text-sm rounded-lg bg-gray-50 dark:bg-gray-800 {success
-						? 'text-green-800 dark:text-green-400'
-						: 'text-red-800 dark:text-red-400'}"
-					role="alert"
-				>
-					<Info class="flex-shrink-0 inline w-4 h-4 me-1" />
-					<span class="font-medium">{status}</span>
-				</div>
-			{/if}
 		{/if}
 
 		<div class="flex justify-between">

@@ -16,25 +16,30 @@
 	<meta property="og:description" content={data.meta.description} />
 </svelte:head>
 
-<article>
-	<!-- Title -->
-	<hgroup>
-		<h1>{data.meta.title}</h1>
-		<p>Published at {formatDate(data.meta.date)}</p>
-	</hgroup>
+<section class="pico container">
+	<article>
+		<!-- Title -->
+		<hgroup>
+			<h1>{data.meta.title}</h1>
+			<p>Published at {formatDate(data.meta.date)}</p>
+		</hgroup>
 
-	<!-- Tags -->
-	<div class="tags">
-		{#each data.meta.categories as category}
-			<span class="surface-4">&num;{category}</span>
-		{/each}
-	</div>
+		<figure class="container text-center items-center my-auto">
+			<img src={data.meta.thumbnail} alt={data.meta.title} class="aspect-video object-cover" />
+		</figure>
+		<!-- Tags -->
+		<div class="tags">
+			{#each data.meta.categories as category}
+				<span class="surface-4">&num;{category}</span>
+			{/each}
+		</div>
 
-	<!-- Post -->
-	<div class="prose">
-		<svelte:component this={data.content} />
-	</div>
-</article>
+		<!-- Post -->
+		<div class="prose">
+			<svelte:component this={data.content} />
+		</div>
+	</article>
+</section>
 
 <style>
 	article {

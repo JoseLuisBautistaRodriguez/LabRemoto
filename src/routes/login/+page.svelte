@@ -3,17 +3,11 @@
 	import { pb } from '$lib/pb/pocketbase.svelte';
 	import { Eye, EyeOff } from 'lucide-svelte';
 
-	let { data } = $props();
-
-	let user = data.user;
 	let showPassword = $state(false);
 
 	$effect.pre(() => {
-		/* 		if (pb.isLoggedIn()) {
+		if (pb.isLoggedIn()) {
 			location.href = '/';
-		} */
-		if (user) {
-			goto('/');
 		}
 	});
 
@@ -115,9 +109,6 @@
 		<footer class="flex justify-between items-center">
 			<small>
 				¿Olvidaste tu contraseña? <a href="/login/password-reset">Recuperar </a>
-			</small>
-			<small>
-				<a href="/admin" class="no-underline">Admin</a>
 			</small>
 		</footer>
 	</article>
