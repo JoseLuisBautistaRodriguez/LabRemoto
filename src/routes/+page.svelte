@@ -29,7 +29,8 @@
 						<a href="/practicas" class="secondary no-underline rounded-lg text-sm px-4 py-2"
 							>Prácticas</a
 						>
-						<a href="/admin" class="button no-underline rounded-lg text-sm px-4 py-2">Admin Panel</a
+						<a href="/administrar" class="button no-underline rounded-lg text-sm px-4 py-2"
+							>Admin Panel</a
 						>
 					</div>
 				{:else}
