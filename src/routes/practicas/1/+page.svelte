@@ -70,6 +70,10 @@
 			<h1>Laboratorio</h1>
 		</header>
 
+		<h1>Práctica 1</h1>
+
+		Esta será la primer práctica del curso, se requiere tener instalado Matlab	
+
 		<div class="grid">
 			<div>
 				<VideoStreamPlayer {streamURL} {streamKey} />
